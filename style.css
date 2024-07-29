@@ -1,0 +1,69 @@
+:root{
+    --content-width: 1280px;
+    --section-block-padding: clamp(6rem, calc(1.4340344168vw + 5.5411089866rem), 7.5rem);
+    --gutter: clamp(2.4rem, calc(0.5736137667vw + 2.2164435946rem), 3rem)
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Outfit', 'Courier New', Courier, monospace;
+}
+
+section{
+    padding-block: var(--section-block-padding);
+    margin-left: auto;
+    margin-right: auto;
+    padding-inline: var(--gutter);
+}
+
+footer{
+    padding-inline: var(--gutter);
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    max-width: var(--content-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-section{
+    background-color: azure;
+}
+
+.header-image {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.header-image-wrapper {
+    max-width: 25rem;
+    height: 200px;
+}
+
+.header-content{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: antiquewhite;
+    margin-top: auto;
+}
+
+.header-text{
+    max-width: 70ch;
+}
+
+.header-links-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 1.5rem;
+}
+
+[class^="devicon"]{
+    font-size: 1.75rem;
+    color: black;
+}
