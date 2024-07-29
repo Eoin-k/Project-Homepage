@@ -1,13 +1,17 @@
 :root{
     --content-width: 1280px;
     --section-block-padding: clamp(6rem, calc(1.4340344168vw + 5.5411089866rem), 7.5rem);
-    --gutter: clamp(2.4rem, calc(0.5736137667vw + 2.2164435946rem), 3rem)
+    --gutter: clamp(2.4rem, calc(0.5736137667vw + 2.2164435946rem), 3rem);
+    --grid-gap: 1rem;
+    --grid-auto-3: repeat(auto-fit, minmax(min(100%, max(calc((var(--content-width) - ((3 - 1) * var(--grid-gap))) / 3) * 0.7, (100% - (3 - 1) * var(--grid-gap)) / 3)), 1fr));
+    --icon-size: 1.75rem;
 }
 
 *{
     box-sizing: border-box;
     margin: 0;
     font-family: 'Outfit', 'Courier New', Courier, monospace;
+    line-height: 1.5;
 }
 
 section{
@@ -19,6 +23,17 @@ section{
 
 footer{
     padding-inline: var(--gutter);
+    padding-block: var(--section-block-padding);
+    margin-left: auto;
+    margin-right: auto;
+    padding-inline: var(--gutter);
+}
+
+img {
+    width: 100%;
+    object-fit: cover; 
+    aspect-ratio: 16/9;
+    object-position: top center;
 }
 
 .container{
@@ -36,11 +51,12 @@ footer{
 .header-image {
     max-width: 100%;
     object-fit: cover;
+    height: 300px;
 }
 
 .header-image-wrapper {
     max-width: 25rem;
-    height: 200px;
+    height: 250px;
 }
 
 .header-content{
@@ -64,6 +80,115 @@ footer{
 }
 
 [class^="devicon"]{
-    font-size: 1.75rem;
+    font-size: var(--icon-size);
     color: black;
+}
+
+.icon-link{
+    width: var(--icon-size);
+    height: var(--icon-size);
+    color: black;
+    margin: 0;
+}
+
+.card-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.cards-wrapper{
+    display: grid;
+    grid-template-columns: var(--grid-auto-3) ;
+    gap: 2rem 1rem;
+}
+
+.card{
+    box-shadow:
+      0 1px 1px hsl(0deg 0% 0% / 0.075),
+      0 2px 2px hsl(0deg 0% 0% / 0.075),
+      0 4px 4px hsl(0deg 0% 0% / 0.075),
+      0 8px 8px hsl(0deg 0% 0% / 0.075),
+      0 16px 16px hsl(0deg 0% 0% / 0.075)
+    ;
+    border-radius: 1em;
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover{
+    scale: 1.02;
+}
+
+
+.card-image-wrapper{
+    width: 100%;
+    border-radius: 1em 1em 0 0;
+    overflow: hidden;
+}
+
+.card-title-and-link-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding-block: 1rem;
+}
+
+.card-links{
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.card-body{
+    padding: 1rem;
+}
+
+.footer{
+    background-color: antiquewhite;
+}
+
+.footer-container{
+    display: flex;
+    gap: 3rem;
+}
+
+.footer-content-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-image{
+    border-radius: 1em;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.footer-text-wrapper p {
+    max-width: 50ch;
+}
+
+.email-wrapper{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+}
+
+.phone-number-wrapper{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.links-wrapper{
+    display: flex;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 680px ) {
+    .header-container{
+        flex-direction: column;
+    }
+    .footer-container{
+        flex-direction: column;
+    }
 }
